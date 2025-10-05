@@ -1,0 +1,575 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #f8f8fa;
+    overflow: hidden;
+}
+
+.background-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(90deg, #ffe2ed 0%, #ffe4f4 45%, #f9fafd 100%);
+    z-index: 0;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.main-content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.left-panel {
+    height: 100vh;
+    width: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    background: none;
+}
+
+.portfolio-vertical {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-vertical {
+    position: relative;
+    width: 140px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.portfolio-vertical-shadow {
+    position: absolute;
+    top: 10px;
+    /* Slightly higher than before */
+    left: 1px;
+    /* Further left for visible offset */
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 7.2rem;
+    font-weight: 700;
+    color: #f48fbc;
+    opacity: 0.53;
+    letter-spacing: 2px;
+    pointer-events: none;
+    transform: rotate(180deg);
+    z-index: 1;
+}
+
+.portfolio-vertical-main {
+    position: absolute;
+    top: 25px;
+    /* Moves white text lower than the shadow */
+    left: 0;
+    /* No offset: aligns further right than shadow */
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 7.2rem;
+    /* Match shadow for perfect overlap */
+    font-weight: 700;
+    color: white;
+    opacity: 1;
+    letter-spacing: 2px;
+    pointer-events: none;
+    transform: rotate(180deg);
+    z-index: 2;
+}
+
+
+.center-image-block {
+    position: relative;
+    width: 310px;
+    height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    z-index: 2;
+}
+
+.border-frame {
+    position: absolute;
+    left: 55px;
+    top: -175px;
+    width: 445px;
+    height: 590px;
+    border: 5.5px solid lightskyblue;
+    border-radius: 30px;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.profile-image {
+    position: relative;
+    width: 550px;
+    height: 570px;
+    object-fit: cover;
+    border-radius: 30px;
+    z-index: 2;
+    left: 75px;
+    top: 2px;
+    border: 4px solid #fff6;
+    opacity: 0.95;
+    box-shadow: 0 9px 28px rgba(33, 37, 60, 0.10);
+    background: #dedede;
+}
+
+/* Overlapping colored tabs */
+.tab-blocks {
+    position: absolute;
+    right: -220px;
+    top: -175px;
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 4;
+}
+
+.tab {
+    height: 35px;
+    width: 30px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: #fed9e2;
+}
+
+.tab.blue {
+    background: rgb(255, 179, 191);
+}
+
+.tab.yellow {
+    background: #55c2df;
+}
+
+.tab.pink {
+    background: rgb(236, 193, 137);
+}
+
+.right-panel {
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 0 0 15px;
+    position: relative;
+    z-index: 3;
+}
+
+.main-text {
+    margin-top: 90px;
+    margin-left: 17.7vw;
+    /* matching visual gap */
+}
+
+.hi-im {
+    font-size: 4.5rem;
+    font-weight: 600;
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: #454267;
+    margin-bottom: 0.1em;
+}
+
+.name-block {
+    font-size: 4.2rem;
+    font-weight: 700;
+    background: #81d6f9;
+    display: inline-block;
+    color: #3c415c;
+    padding: 3px 21px 3px 14px;
+    border-radius: 21px;
+    letter-spacing: 0.7px;
+    margin-bottom: 8px;
+}
+
+.desc-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #44436d;
+    margin: 29px 0 10px 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    white-space: nowrap;
+    min-height: 40px; /* Prevents layout jump */
+}
+
+#typing-text {
+    display: inline-block;
+}
+
+.about-blurb {
+    margin-top: 18px;
+    margin-left: 17.7vw; /* Align perfectly with name-block */
+    font-size: 1.2rem;
+    color: #707188;
+    max-width: 420px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.55em;
+    position: relative;
+}
+
+.years {
+    font-size: 1.25rem;
+    color: #595777;
+    font-weight: 500;
+    margin-left: 6px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+
+@media (max-width: 1100px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .left-panel,
+    .center-image-block,
+    .right-panel {
+        width: 100vw;
+        height: unset;
+    }
+
+    .main-text,
+    .dots-grid {
+        margin-left: 0;
+        left: 20px !important;
+    }
+
+    .portfolio-vertical {
+        display: none;
+    }
+}
+
+/* --- Desktop social icons --- */
+.share {
+    position: fixed;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    z-index: 99;
+}
+
+.share a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: white;
+    transition: transform 0.2s;
+    text-decoration: none;
+}
+
+.share a:hover {
+    transform: scale(1.2);
+}
+
+.share a:active {
+    transform: scale(0.9);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.facebook {
+    background: #5987c4;
+    /* slightly less saturated pastel blue */
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f9a8d4, #f9c27b, #f78ca0, #a18cd1);
+    /* pastel version of Instagram’s gradient */
+}
+
+.linkedin {
+    background: #5ca9dd;
+    /* softer, muted blue */
+}
+
+.github {
+    background: #504f4f;
+    /* soft dark grey */
+}
+
+.x {
+    background: #53b4f0;
+    /* slightly less saturated muted sky blue */
+}
+
+.devto {
+    background: #3b3b3b;
+    /* a touch softer black */
+}
+
+.twitch {
+    background: #9174c2;
+    /* very slightly desaturated pastel purple */
+}
+
+
+.gitlab {
+    background: #e9985b;
+    /* muted orange */
+}
+
+.stackoverflow {
+    background: #f59056;
+    /* slightly darker orange, gentle saturation */
+}
+
+.cursor {
+  display: inline-block;
+  background-color: transparent;
+  color: #ff80ab; /* cute pinkish tone, change if needed */
+  animation: blink 0.7s infinite;
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.backbutton {
+    position: relative;
+    bottom: -25px;
+    right: -400px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    width: 200px;
+    padding: 9px 0;
+    font-size: 1rem;
+    background-color: rgba(129, 214, 249, 0.6); /* translucent sky blue */
+    color: #3c415c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.backbutton:hover {
+    background-color: rgba(129, 214, 249, 0.85); /* slightly less transparent on hover */
+    transform: translateY(-2px);
+}
+
+/* --- Tablets / Medium Screens --- */
+@media (max-width: 1350px) {
+    .main-content {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    .left-panel,
+    .center-image-block,
+    .right-panel {
+        width: 90%;
+        height: auto;
+    }
+
+    .main-text {
+        margin-left: 0;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .hi-im {
+        font-size: 3.5rem;
+    }
+
+    .name-block {
+        font-size: 3rem;
+        padding: 3px 18px 3px 12px;
+    }
+
+    .desc-block {
+        font-size: 1.5rem;
+        justify-content: center;
+    }
+
+    .about-blurb {
+        margin-left: 0;
+        margin-top: 12px;
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .backbutton {
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 20px;
+    }
+}
+
+/* --- Small Tablets / Large Phones --- */
+@media (max-width: 992px) {
+    .hi-im {
+        font-size: 3rem;
+    }
+
+    .name-block {
+        font-size: 2.5rem;
+    }
+
+    .desc-block {
+        font-size: 1.4rem;
+    }
+
+    .about-blurb {
+        font-size: 1.1rem;
+    }
+
+    .center-image-block {
+        width: 250px;
+        height: 270px;
+    }
+
+    .profile-image {
+        width: 450px;
+        height: 470px;
+        left: 50px;
+    }
+
+    .border-frame {
+        width: 380px;
+        height: 510px;
+        left: 45px;
+        top: -150px;
+    }
+}
+
+/* --- Mobile Devices --- */
+@media (max-width: 600px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 30px;
+    }
+
+    .left-panel,
+    .center-image-block,
+    .right-panel {
+        width: 100%;
+        height: auto;
+    }
+
+    .hi-im {
+        font-size: 2.5rem;
+    }
+
+    .name-block {
+        font-size: 2rem;
+        padding: 2px 14px 2px 10px;
+    }
+
+    .desc-block {
+        font-size: 1.2rem;
+    }
+
+    .about-blurb {
+        font-size: 1rem;
+        max-width: 95%;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .center-image-block {
+        width: 220px;
+        height: 240px;
+    }
+
+    .profile-image {
+        width: 380px;
+        height: 400px;
+        left: 30px;
+    }
+
+    .border-frame {
+        width: 330px;
+        height: 450px;
+        left: 25px;
+        top: -120px;
+    }
+
+    .tab-blocks {
+        right: -180px;
+        top: -150px;
+    }
+
+    .backbutton {
+        width: 160px;
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 15px;
+    }
+
+    .share {
+        right: 10px;
+        gap: 20px;
+    }
+
+    .share a {
+        width: 40px;
+        height: 40px;
+        font-size: 26px;
+    }
+}
