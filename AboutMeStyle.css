@@ -1,0 +1,1033 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: linear-gradient(180deg, #1c1c1c, #2c1f4c, #3b1f6b, #4b1f8c, #5c1fae, #6f1fd1);
+    min-height: 900vh;
+    /* to allow scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Neon Sign */
+/* Load Barbie Medium font */
+@font-face {
+    font-family: 'BarbieMedium';
+    src: url('fonts/Retro_Dolly.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.neon-sign {
+    font-family: 'BarbieMedium', cursive;
+    font-size: 6.85rem;
+    left: 65px;
+    /* larger text */
+    color: #ff007f;
+    /* neon pink */
+    -webkit-text-stroke: 2.3px #ffffff;
+    /* thick white border for readability */
+    text-shadow:
+        0 0 5px #ff007f,
+        0 0 10px #ff007f,
+        0 0 20px #ff007f,
+        0 0 40px #ff007f,
+        0 0 80px #ff66b3,
+        0 0 90px #ff66b3,
+        0 0 100px #ff66b3;
+    position: relative;
+    margin: 0 auto 50px auto;
+    /* centered with bottom margin */
+    text-align: center;
+    animation: flicker 3s infinite;
+    letter-spacing: -1px;
+    /* reduces space between all letters */
+    word-spacing: -19px;
+    /* reduces extra gap between words */
+}
+
+@keyframes flicker {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        text-shadow:
+            0 0 5px #ff007f,
+            0 0 10px #ff007f,
+            0 0 20px #ff007f,
+            0 0 40px #ff007f,
+            0 0 80px #ff66b3,
+            0 0 90px #ff66b3,
+            0 0 100px #ff66b3;
+        opacity: 1;
+    }
+
+    20%,
+    24%,
+    55% {
+        text-shadow: none;
+        opacity: 0.5;
+    }
+}
+
+/* Container for the logo */
+.logo-barbie {
+    position: absolute;
+    top: 30px;
+    left: 12px;
+    width: 120px;
+    z-index: 1000;
+}
+
+/* Logo Image with Pink Gradient Glow and Shadows */
+.logo-barbie img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+    /* perfectly round */
+
+    /* Pink gradient glow using multiple box-shadow layers */
+    box-shadow:
+        0 0 10px rgba(255, 182, 193, 0.8),
+        /* light pink */
+        0 0 20px rgba(255, 105, 180, 0.6),
+        /* hot pink */
+        0 0 30px rgba(255, 20, 147, 0.4),
+        /* deeper pink */
+        0 0 40px rgba(255, 182, 193, 0.3),
+        /* outer soft pink glow */
+        0 4px 15px rgba(0, 0, 0, 0.3);
+    /* soft shadow for depth */
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for playful pop */
+.logo-barbie img:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 0 15px rgba(255, 182, 193, 1),
+        0 0 25px rgba(255, 105, 180, 0.8),
+        0 0 35px rgba(255, 20, 147, 0.6),
+        0 0 50px rgba(255, 182, 193, 0.5),
+        0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+@font-face {
+    font-family: 'Inkfree';
+    src: url('fonts/Inkfree.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Navbar Styles */
+.navbar {
+    font-family: 'Inkfree', cursive;
+    position: absolute;
+    /* stays at the top */
+    top: 175px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    /* translucent white */
+    backdrop-filter: blur(10px);
+    /* frosted glass effect */
+    z-index: 2000;
+    /* above everything else */
+    padding: 7px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    /* center links */
+    gap: 50px;
+    /* space between links */
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    /* increased from 1.2rem to 2rem */
+    font-weight: 500;
+    padding: 10px 10px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    position: relative;
+    /* needed for pseudo-element underline */
+}
+
+
+.navbar ul li a:hover {
+    /* Underline effect */
+    text-decoration: underline white;
+}
+
+/* Active: clicked state */
+/* Persistent Active State */
+.navbar ul li a.active {
+    transform: scale(1.6);
+    /* enlarged */
+    text-shadow:
+        0 0 10px rgba(255, 105, 180, 1),
+        0 0 20px rgba(255, 105, 180, 0.8),
+        0 0 30px rgba(255, 105, 180, 0.6);
+    /* intensified glow */
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
+
+.navbar ul li a:active {
+    transform: scale(1.2);
+}
+
+/* Profile Picture Block */
+.profile-block {
+    margin-top: 50px;
+    /* space below navbar */
+    position: absolute;
+    left: 0;
+    top: 190px;
+    opacity: 0.8;
+}
+
+/* Dark translucent overlay */
+.writing-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* dark translucent window */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Handwriting text */
+/* Common Handwriting Style */
+
+@font-face {
+    font-family: 'LondonHistory';
+    src: url('fonts/Londonhistory-2O2Xl.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.handwriting,
+.handwriting2,
+.handwriting3 {
+    font-family: 'LondonHistory', cursive;
+    font-size: 6rem;
+    color: #fff;
+    white-space: nowrap;
+    border-right: 4px solid #fff;
+    /* cursor effect */
+    overflow: hidden;
+    display: block;
+    margin-bottom: 20px;
+    max-width: 0;
+}
+
+/* Line 1 animation: type then delete */
+.handwriting {
+    border-right: none;
+    /* remove cursor */
+    animation: typingDeleting 6s steps(40, end) forwards;
+}
+
+/* Line 2 animation: starts after line 1 finishes */
+.handwriting2 {
+    font-size: 5.7rem;
+    border-right: none;
+    /* remove cursor */
+    animation: typingDeleting 6s steps(40, end) forwards 6.5s;
+}
+
+/* Line 3 animation: starts after line 2 finishes */
+.handwriting3 {
+    font-size: 10rem;
+    border-right: none;
+    /* remove cursor */
+    animation: typing 6s steps(40, end) forwards 13s;
+}
+
+
+/* Typing then deleting animation */
+
+@keyframes typing {
+    from {
+        max-width: 0;
+    }
+
+    to {
+        max-width: 100%;
+    }
+}
+
+@keyframes typingDeleting {
+    0% {
+        max-width: 0;
+    }
+
+    /* start invisible */
+    50% {
+        max-width: 100%;
+    }
+
+    /* fully typed */
+    100% {
+        max-width: 0;
+    }
+
+    /* fully deleted */
+}
+
+/* Blinking cursor */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Wrapper to push About Me below the absolute section above */
+.about-section-wrapper {
+    position: relative; /* normal flow */
+    padding-top: 900px; /* adjust based on height of section above */
+}
+
+/* Main About Section: layout with images on the right */
+.about-section {
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: flex-start; /* align card and images at top */
+    gap: 70px; /* space between card and images */
+    /* remove margin-top! padding-top in wrapper handles spacing */
+}
+
+/* About Images Container */
+.about-images {
+    display: flex;
+    flex-direction: column;
+    gap: 55px; /* space between images */
+}
+
+/* Each about image */
+.about-images img {
+    margin-top: 10px;
+    width: 250px;
+    height: auto;
+    border-radius: 20%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0.70;
+}
+
+/* Hover effect */
+.about-images img:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* About Card */
+.about-card {
+    position: relative;
+    left: -70px; /* align nicely with images */
+    width: 800px;
+    padding: 30px;
+    background: rgba(255, 245, 250, 0.2);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    font-family: 'Poppins', sans-serif;
+    color: #f4e3f8;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+/* When scrolled into view */
+.about-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Heading */
+.about-card h2 {
+    font-family: 'LondonHistory', cursive;
+    color: #f11c98;
+    margin-bottom: 5px;
+    font-size: 9.7rem;
+    text-align: center;
+    padding-bottom: 10px;
+    text-shadow:
+        0 2px 4px rgba(0,0,0,0.35),
+        0 4px 8px rgba(0,0,0,0.25);
+}
+
+/* Paragraphs */
+.about-card p {
+    font-family: 'BarbieMedium', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #f593c4de;
+    line-height: 1.1;
+    word-spacing: 0.5px;
+    text-align: justify;
+    margin-top: 15px;
+    text-shadow:
+        0 1px 2px rgba(0,0,0,0.25),
+        0 2px 6px rgba(0,0,0,0.15);
+}
+
+
+.education-section {
+    display: flex;
+    align-items: flex-start;
+    /* Align images and card at the top */
+    justify-content: space-evenly;
+    margin-top: 300px;
+    margin-left: 100px;
+    gap: 130px;
+    /* Space between images and card */
+    margin-top: 200px;
+    justify-content: center;
+    /* Center section horizontally */
+}
+
+/* Images container */
+.edu-images {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    /* Space between images */
+}
+
+/* Each image styling */
+.edu-images img {
+    width: 250px;
+    height: 250px;
+    border-radius: 25%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+/* Hover effect */
+.edu-images img:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Education card */
+.education-card {
+    position: relative;
+    /* remove absolute positioning */
+    width: 800px;
+    padding: 30px;
+    background: rgba(255, 245, 250, 0.2);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    color: #f4e3f8;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+/* When scrolled into view */
+.education-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    /* pop-up effect */
+}
+
+.education-card h2 {
+    font-family: 'LondonHistory', cursive;
+    color: #f11c98;
+    margin-bottom: 5px;
+    font-size: 9.7rem;
+    text-align: center;
+    padding-bottom: 10px;
+
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.35),
+        0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.education-card p {
+    font-family: 'BarbieMedium', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    /* fixed syntax */
+    color: #f593c4de;
+    /* set text color separately */
+    line-height: 1.1;
+    /* reduced line spacing */
+    word-spacing: 0.5px;
+    /* slightly reduce space between words */
+    text-align: justify;
+    margin-top: 15px;
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.25),
+        0 2px 6px rgba(0, 0, 0, 0.15);
+
+}
+
+
+.skills-section {
+    display: flex;
+    align-items: flex-start;
+    /* Align images/icons and card at the top */
+    justify-content: center;
+    /* Center section horizontally */
+    gap: 130px;
+    /* Space between images and card */
+    margin-top: 200px;
+}
+
+/* Optional: Skills images container */
+.skills-images {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    /* Space between images */
+}
+
+.skills-section {
+    display: flex;
+    align-items: flex-start;
+    /* align card and images at the top */
+    justify-content: center;
+    /* center the section horizontally */
+    gap: 130px;
+    /* space between card and images */
+    margin-top: 200px;
+}
+
+/* Skills card */
+.skill-card {
+    position: relative;
+    left: -100px;
+    width: 800px;
+    padding: 30px;
+    background: rgba(255, 245, 250, 0.2);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    color: #f4e3f8;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+/* When scrolled into view */
+.skill-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Heading */
+.skill-card h2 {
+    font-family: 'LondonHistory', cursive;
+    color: #f11c98;
+    margin-bottom: 5px;
+    font-size: 9.7rem;
+    text-align: center;
+    padding-bottom: 10px;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.35),
+        0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Paragraphs */
+.skill-card p {
+    font-family: 'BarbieMedium', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #f593c4de;
+    line-height: 1.1;
+    word-spacing: 0.5px;
+    text-align: justify;
+    margin-top: 15px;
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.25),
+        0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Skills images container */
+.skills-images {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    /* space between images */
+}
+
+/* Each skill image */
+.skills-images img {
+    width: 170px;
+    height: 170px;
+    border-radius: 25%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+/* Hover effect */
+.skills-images img:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.projects-section {
+    display: flex;
+    align-items: flex-start;
+    /* align images and card at the top */
+    justify-content: center;
+    /* center section horizontally */
+    gap: 70px;
+    /* space between images and card */
+    margin-top: 200px;
+    margin-left: 0;
+}
+
+/* Images container */
+.project-images {
+    margin-top: 20px;
+    margin-left: -120px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    /* space between images */
+}
+
+/* Each project image */
+.project-images img {
+    width: 380px;
+    height: auto;
+    border-radius: 25%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+/* Hover effect */
+.project-images img:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Project card */
+.project-card {
+    position: relative;
+    margin-right: -150px;
+    width: 800px;
+    padding: 30px;
+    background: rgba(255, 245, 250, 0.2);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    color: #f4e3f8;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+/* When scrolled into view */
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Heading */
+.project-card h2 {
+    font-family: 'LondonHistory', cursive;
+    color: #f11c98;
+    margin-bottom: 5px;
+    font-size: 9.7rem;
+    text-align: center;
+    padding-bottom: 10px;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.35),
+        0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Paragraphs */
+.project-card p {
+    font-family: 'BarbieMedium', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #f593c4de;
+    line-height: 1.1;
+    word-spacing: 0.5px;
+    text-align: justify;
+    margin-top: 15px;
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.25),
+        0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card {
+    position: relative;
+    margin: 200px auto;
+    /* center horizontally with some space from previous section */
+    width: 1000px;
+    /* same as project card */
+    padding: 30px;
+    /* 🌸 Soft frosted blush effect */
+    background: rgba(255, 245, 250, 0.2);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+    color: #f4e3f8;
+    opacity: 0;
+    /* start hidden for scroll animation */
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.contact-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-card h2 {
+    font-family: 'LondonHistory', cursive;
+    color: #f11c98;
+    font-size: 9rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.35),
+        0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card label {
+    font-family: 'BarbieMedium', cursive;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.contact-card input,
+.contact-card textarea {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(255, 255, 255, 0.2);
+    color: #333;
+    outline: none;
+    backdrop-filter: blur(6px);
+}
+
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+    color: #aaa;
+}
+
+.contact-card button {
+    padding: 15px 25px;
+    font-size: 1.8rem;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 10px;
+    background: #f593c4de;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-card button:hover {
+    background: #f11c98;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Large tablets / smaller desktops */
+@media (max-width: 1200px) {
+    .neon-sign {
+        font-size: 5.5rem;
+        word-spacing: -15px;
+    }
+
+    .navbar ul {
+        gap: 35px;
+    }
+
+    .about-section,
+    .education-section,
+    .skills-section,
+    .projects-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin-left: 0;
+    }
+
+    .about-card,
+    .education-card,
+    .skill-card,
+    .project-card,
+    .contact-card {
+        width: 90%;
+        left: 0;
+        margin-right: 0;
+    }
+
+    .about-images img,
+    .edu-images img,
+    .skills-images img,
+    .project-images img {
+        width: 80%;
+        height: auto;
+        margin-left: 0;
+    }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .neon-sign {
+        font-size: 4.5rem;
+        word-spacing: -12px;
+    }
+
+    .navbar ul {
+        gap: 25px;
+    }
+
+    .handwriting,
+    .handwriting2,
+    .handwriting3 {
+        font-size: 4.5rem;
+    }
+
+    .about-card h2,
+    .education-card h2,
+    .skill-card h2,
+    .project-card h2,
+    .contact-card h2 {
+        font-size: 6rem;
+    }
+
+    .about-card p,
+    .education-card p,
+    .skill-card p,
+    .project-card p {
+        font-size: 1.5rem;
+    }
+
+    .about-images img,
+    .edu-images img,
+    .skills-images img,
+    .project-images img {
+        width: 200px;
+        gap: 50px;
+    }
+
+    .contact-card {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 700px) {
+    .neon-sign {
+        font-size: 3.8rem;
+        word-spacing: -10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .handwriting,
+    .handwriting2,
+    .handwriting3 {
+        font-size: 3rem;
+    }
+
+    .about-card h2,
+    .education-card h2,
+    .skill-card h2,
+    .project-card h2,
+    .contact-card h2 {
+        font-size: 4.5rem;
+    }
+
+    .about-card p,
+    .education-card p,
+    .skill-card p,
+    .project-card p {
+        font-size: 1.3rem;
+    }
+
+    .about-images img,
+    .edu-images img,
+    .skills-images img,
+    .project-images img {
+        width: 170px;
+        gap: 40px;
+    }
+
+    .about-card,
+    .education-card,
+    .skill-card,
+    .project-card,
+    .contact-card {
+        width: 95%;
+        left: 0;
+        margin-right: 0;
+        padding: 15px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 500px) {
+    .neon-sign {
+        font-size: 2.8rem;
+        word-spacing: -8px;
+    }
+
+    .navbar ul {
+        gap: 15px;
+    }
+
+    .handwriting,
+    .handwriting2,
+    .handwriting3 {
+        font-size: 2.5rem;
+    }
+
+    .about-card h2,
+    .education-card h2,
+    .skill-card h2,
+    .project-card h2,
+    .contact-card h2 {
+        font-size: 3.5rem;
+        padding-bottom: 5px;
+    }
+
+    .about-card p,
+    .education-card p,
+    .skill-card p,
+    .project-card p {
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+
+    .about-images img,
+    .edu-images img,
+    .skills-images img,
+    .project-images img {
+        width: 140px;
+        gap: 30px;
+    }
+
+    .contact-card {
+        width: 95%;
+        padding: 12px;
+    }
+
+    .skills-images {
+        margin-top: 20px;
+    }
+
+    .project-images {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .neon-sign {
+        font-size: 2.2rem;
+        word-spacing: -5px;
+    }
+
+    .navbar ul li a {
+        font-size: 1.2rem;
+    }
+
+    .handwriting,
+    .handwriting2,
+    .handwriting3 {
+        font-size: 2rem;
+    }
+
+    .about-card h2,
+    .education-card h2,
+    .skill-card h2,
+    .project-card h2,
+    .contact-card h2 {
+        font-size: 3rem;
+    }
+
+    .about-card p,
+    .education-card p,
+    .skill-card p,
+    .project-card p {
+        font-size: 1rem;
+    }
+
+    .about-images img,
+    .edu-images img,
+    .skills-images img,
+    .project-images img {
+        width: 120px;
+        gap: 20px;
+    }
+}
