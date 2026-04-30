@@ -53,7 +53,42 @@ This portfolio serves as a **central hub** for:
 
 ## 📂 Project Structure
 
-
+```
+Personal-Portfolio/
+│
+├── fonts/
+│
+├── AboutMeFinal.html
+├── AboutMeScript.js
+├── AboutMeStyle.css
+│
+├── FinalWebsiteScript.js
+├── FinalWebsiteStyle.css
+│
+├── index.html
+├── README.md
+│
+├── IITMadrasLogo.jpg
+├── LogoPhoto.jpg
+├── MoonOrbit.jpg
+├── MyPhoto.jpg
+├── PackageTracker.jpg
+├── PhotoGallery.jpg
+├── ProfileCard.jpg
+├── ProfilePhotoPic.jpg
+├── Recipe.jpg
+├── SSTLogo.jpg
+├── School.png
+├── WebsitePhoto.jpg
+│
+├── java.jpg
+├── javascript.jpg
+├── mysql.jpg
+├── python.jpg
+│
+├── profile1.jpg
+└── profile2.jpg
+```
 
 ---
 
