@@ -10,15 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Profile block animation on scroll
     const profileBlock = document.querySelector('.profile-block');
+    let writingInterval;
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                const restartAnimation = () => {
+                    profileBlock.classList.remove('animate-writing');
+                    void profileBlock.offsetWidth; // trigger reflow to restart animation
+                    profileBlock.classList.add('animate-writing');
+                };
+                restartAnimation();
+                // Animation takes ~19s total. Wait an extra 30s = 49000ms loop
+                writingInterval = setInterval(restartAnimation, 49000);
+            } else {
+                // Remove class and stop interval when scrolled out of view
                 profileBlock.classList.remove('animate-writing');
-                void profileBlock.offsetWidth; // trigger reflow to restart animation
-                profileBlock.classList.add('animate-writing');
+                clearInterval(writingInterval);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 }); // lower threshold to ensure it triggers on large screens
     observer.observe(profileBlock);
 
     // About card animation on scroll
