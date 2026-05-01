@@ -39,8 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   setTimeout(type, 1000);
-});
-
   // Replace "main.html" with your target file name!
   document.body.addEventListener("click", function (event) {
     // prevent clicks on buttons, links, icons, etc. from triggering navigation
@@ -49,3 +47,4 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location.href = "AboutMeFinal.html"; // 👈 change this to your desired file
     }
   });
+});

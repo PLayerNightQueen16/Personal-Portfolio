@@ -914,7 +914,7 @@ body {
 /* Small tablets / large phones */
 @media (max-width: 700px) {
     .logo-barbie {
-        position: static;
+        position: relative; /* Must be relative to contain the ::before glow */
         width: 100px;
         order: -3;
         margin: 0 auto 20px auto;
@@ -935,6 +935,12 @@ body {
         order: -1;
         margin-bottom: 40px;
         width: 100%;
+    }
+    
+    .profile-block {
+        position: relative;
+        top: auto;
+        margin-top: 0;
     }
 
     .navbar ul {

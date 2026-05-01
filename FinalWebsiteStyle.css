@@ -538,30 +538,34 @@ body {
     }
 
     .center-image-block {
-        width: 150px;
-        height: 165px;
+        /* Restore desktop bounding box to act as a proper anchor */
+        width: 310px;
+        height: 330px;
         margin-top: 20px;
         margin-bottom: 50px;
+        transform: scale(0.55) translateX(-20px);
+        transform-origin: center center;
     }
 
     .profile-image {
-        width: 320px;
-        height: auto;
-        left: -15px;
-        top: -20px;
+        /* Restore desktop proportions so it scales perfectly */
+        width: 550px;
+        height: 570px;
+        left: 80px;
+        top: 2px;
     }
 
     .border-frame {
-        width: 250px;
-        height: 350px;
-        left: 0px;
-        top: -80px;
+        width: 445px;
+        height: 590px;
+        left: 60px;
+        top: -175px;
     }
 
     .tab-blocks {
-        right: -80px;
-        top: -50px;
-        transform: scale(0.6);
+        right: -230px;
+        top: -175px;
+        transform: none; /* Inherits scale from parent */
     }
 
     .backbutton {
