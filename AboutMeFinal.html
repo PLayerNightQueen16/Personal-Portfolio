@@ -44,8 +44,8 @@
         </div>
     </div>
 
-    <div id="about" class="about-section-wrapper">
-        <div class="about-section">
+    <div class="about-section-wrapper">
+        <div id="about" class="about-section">
             <!-- About Card -->
             <div class="about-card" id="aboutCard">
                 <h2>About Me</h2>
@@ -211,9 +211,9 @@
         </div>
     </div>
 
-    <div class="contact-card" id="contactCard" onsubmit="sendEmail(event)">
+    <div class="contact-card" id="contactCard">
         <h2>Contact Me</h2>
-        <form class="contact-form" action="#" method="post">
+        <form class="contact-form" action="#" method="post" onsubmit="sendEmail(event)">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
 

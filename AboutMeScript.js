@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     profileBlock.classList.add('animate-writing');
                 };
                 restartAnimation();
-                // Animation takes ~19s total. Wait an extra 30s = 49000ms loop
-                writingInterval = setInterval(restartAnimation, 49000);
+                // Animation takes ~25s total. Wait an extra 30s = 55000ms loop
+                writingInterval = setInterval(restartAnimation, 55000);
             } else {
                 // Remove class and stop interval when scrolled out of view
                 profileBlock.classList.remove('animate-writing');
@@ -31,60 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.3 }); // lower threshold to ensure it triggers on large screens
     observer.observe(profileBlock);
 
-    // About card animation on scroll
-    const aboutCard = document.getElementById('aboutCard');
-    const aboutObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.5 });
-    aboutObserver.observe(aboutCard);
+    // Scroll animations for all cards and images
+    const scrollElements = document.querySelectorAll(
+        '.about-card, .education-card, .skill-card, .project-card, .contact-card, .about-images img, .edu-images img, .skills-images img, .project-images img'
+    );
 
-    // Education card animation on scroll
-    const eduCard = document.getElementById('eduCard');
-    const eduObserver = new IntersectionObserver((entries) => {
+    const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+            } else {
+                // Remove class when out of view so it animates every time you scroll to it
+                entry.target.classList.remove('visible');
             }
         });
-    }, { threshold: 0.5 });
-    eduObserver.observe(eduCard);
+    }, { threshold: 0.15 });
 
-    // Skills card animation on scroll
-    const skillCard = document.getElementById('skillCard');
-    const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.5 });
-    skillObserver.observe(skillCard);
-
-    // Projects card animation on scroll// Skills card animation on scroll
-    const projectCard = document.getElementById('projectCard');
-    const projectObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.5 });
-    projectObserver.observe(projectCard);
-
-    // Contact card animation on scroll
-    const contactCard = document.getElementById('contactCard');
-    const contactObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.5 });
-    contactObserver.observe(contactCard);
+    scrollElements.forEach(el => scrollObserver.observe(el));
 });
 
 function sendEmail(e) {

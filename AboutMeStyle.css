@@ -12,7 +12,7 @@ html {
 
 body {
     background: linear-gradient(180deg, #1c1c1c, #2c1f4c, #3b1f6b, #4b1f8c, #5c1fae, #6f1fd1);
-    min-height: 900vh;
+    min-height: 100vh;
     /* to allow scrolling */
     display: flex;
     flex-direction: column;
@@ -68,22 +68,13 @@ body {
     53%,
     57%,
     100% {
-        text-shadow:
-            0 0 5px #ff007f,
-            0 0 10px #ff007f,
-            0 0 20px #ff007f,
-            0 0 40px #ff007f,
-            0 0 80px #ff66b3,
-            0 0 90px #ff66b3,
-            0 0 100px #ff66b3;
         opacity: 1;
     }
 
     20%,
     24%,
     55% {
-        text-shadow: none;
-        opacity: 0.5;
+        opacity: 0.3;
     }
 }
 
@@ -91,37 +82,43 @@ body {
 .logo-barbie {
     position: absolute;
     top: 30px;
-    left: 12px;
-    width: 120px;
+    left: 30px;
+    width: 125px;
     z-index: 1000;
 }
 
-/* Logo Image with Pink Gradient Glow and Shadows */
+/* Pseudo-element for hardware-accelerated glow */
+.logo-barbie::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px rgba(255, 182, 193, 0.8),
+        0 0 20px rgba(255, 105, 180, 0.6),
+        0 0 30px rgba(255, 20, 147, 0.4),
+        0 0 40px rgba(255, 182, 193, 0.3),
+        0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: gpuGlowFlicker 3s infinite;
+    z-index: -1;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Logo Image */
 .logo-barbie img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 50%;
-    /* perfectly round */
-
-    /* Pink gradient glow using multiple box-shadow layers */
-    box-shadow:
-        0 0 10px rgba(255, 182, 193, 0.8),
-        /* light pink */
-        0 0 20px rgba(255, 105, 180, 0.6),
-        /* hot pink */
-        0 0 30px rgba(255, 20, 147, 0.4),
-        /* deeper pink */
-        0 0 40px rgba(255, 182, 193, 0.3),
-        /* outer soft pink glow */
-        0 4px 15px rgba(0, 0, 0, 0.3);
-    /* soft shadow for depth */
-
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
 }
 
-/* Hover effect for playful pop */
-.logo-barbie img:hover {
+/* Hover effect */
+.logo-barbie:hover img {
+    transform: scale(1.1);
+}
+
+.logo-barbie:hover::before {
     transform: scale(1.1);
     box-shadow:
         0 0 15px rgba(255, 182, 193, 1),
@@ -129,6 +126,12 @@ body {
         0 0 35px rgba(255, 20, 147, 0.6),
         0 0 50px rgba(255, 182, 193, 0.5),
         0 6px 20px rgba(0, 0, 0, 0.4);
+    animation: none;
+}
+
+@keyframes gpuGlowFlicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0; }
 }
 
 @font-face {
@@ -267,7 +270,7 @@ body {
     /* remove cursor */
 }
 .animate-writing .handwriting {
-    animation: typingDeleting 6s linear forwards;
+    animation: typingDeleting 8s linear forwards;
 }
 
 /* Line 2 animation: starts after line 1 finishes */
@@ -277,7 +280,7 @@ body {
     /* remove cursor */
 }
 .animate-writing .handwriting2 {
-    animation: typingDeleting 6s linear forwards 6.5s;
+    animation: typingDeleting 8s linear forwards 8.5s;
 }
 
 /* Line 3 animation: starts after line 2 finishes */
@@ -287,7 +290,7 @@ body {
     /* remove cursor */
 }
 .animate-writing .handwriting3 {
-    animation: typing 6s linear forwards 13s;
+    animation: typing 8s linear forwards 17s;
 }
 
 
@@ -357,9 +360,15 @@ body {
     height: auto;
     border-radius: 20%;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.about-images img.visible {
     opacity: 0.70;
+    transform: translateY(0);
 }
 
 /* Hover effect */
@@ -451,9 +460,15 @@ body {
     height: 250px;
     border-radius: 25%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.edu-images img.visible {
     opacity: 0.75;
+    transform: translateY(0);
 }
 
 /* Hover effect */
@@ -620,9 +635,15 @@ body {
     height: 170px;
     border-radius: 25%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.skills-images img.visible {
     opacity: 0.75;
+    transform: translateY(0);
 }
 
 /* Hover effect */
@@ -659,9 +680,15 @@ body {
     height: auto;
     border-radius: 25%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.project-images img.visible {
     opacity: 0.9;
+    transform: translateY(0);
 }
 
 /* Hover effect */
