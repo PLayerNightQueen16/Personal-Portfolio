@@ -913,9 +913,28 @@ body {
 
 /* Small tablets / large phones */
 @media (max-width: 700px) {
+    .logo-barbie {
+        position: static;
+        width: 100px;
+        order: -3;
+        margin: 0 auto 20px auto;
+    }
+
     .neon-sign {
-        font-size: 3.8rem;
-        word-spacing: -10px;
+        left: 0;
+        margin: 0 auto 30px auto;
+        font-size: clamp(2.5rem, 8vw, 3.8rem);
+        word-spacing: normal;
+        line-height: 1.2;
+        order: -2;
+    }
+
+    .navbar {
+        position: relative;
+        top: 0;
+        order: -1;
+        margin-bottom: 40px;
+        width: 100%;
     }
 
     .navbar ul {
@@ -960,17 +979,12 @@ body {
         width: 95%;
         left: 0;
         margin-right: 0;
-        padding: 15px;
+        padding: 20px;
     }
 }
 
 /* Mobile phones */
 @media (max-width: 500px) {
-    .neon-sign {
-        font-size: 2.8rem;
-        word-spacing: -8px;
-    }
-
     .navbar ul {
         gap: 15px;
     }
@@ -1023,11 +1037,6 @@ body {
 
 /* Extra small devices */
 @media (max-width: 360px) {
-    .neon-sign {
-        font-size: 2.2rem;
-        word-spacing: -5px;
-    }
-
     .navbar ul li a {
         font-size: 1.2rem;
     }

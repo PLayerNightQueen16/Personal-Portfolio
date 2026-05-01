@@ -474,21 +474,28 @@ body {
     }
 
     .center-image-block {
-        width: 250px;
-        height: 270px;
+        width: 200px;
+        height: 220px;
+        margin-bottom: 60px;
     }
 
     .profile-image {
-        width: 450px;
-        height: 470px;
-        left: 50px;
+        width: 380px;
+        height: auto;
+        left: 0px;
     }
 
     .border-frame {
-        width: 380px;
-        height: 510px;
-        left: 45px;
-        top: -150px;
+        width: 330px;
+        height: 450px;
+        left: 20px;
+        top: -120px;
+    }
+
+    .tab-blocks {
+        right: -100px;
+        top: -100px;
+        transform: scale(0.8);
     }
 }
 
@@ -502,10 +509,12 @@ body {
     }
 
     .left-panel,
-    .center-image-block,
     .right-panel {
         width: 100%;
         height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .hi-im {
@@ -529,44 +538,56 @@ body {
     }
 
     .center-image-block {
-        width: 220px;
-        height: 240px;
+        width: 150px;
+        height: 165px;
+        margin-top: 20px;
+        margin-bottom: 50px;
     }
 
     .profile-image {
-        width: 380px;
-        height: 400px;
-        left: 30px;
+        width: 320px;
+        height: auto;
+        left: -15px;
+        top: -20px;
     }
 
     .border-frame {
-        width: 330px;
-        height: 450px;
-        left: 25px;
-        top: -120px;
+        width: 250px;
+        height: 350px;
+        left: 0px;
+        top: -80px;
     }
 
     .tab-blocks {
-        right: -180px;
-        top: -150px;
+        right: -80px;
+        top: -50px;
+        transform: scale(0.6);
     }
 
     .backbutton {
-        width: 160px;
-        right: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-top: 15px;
+        width: 200px;
+        right: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto 0 auto;
     }
 
     .share {
-        right: 10px;
-        gap: 20px;
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 40px;
     }
 
     .share a {
         width: 40px;
         height: 40px;
-        font-size: 26px;
+        font-size: 20px;
     }
 }
