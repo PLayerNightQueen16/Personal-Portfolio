@@ -13,7 +13,6 @@ html {
 body {
     background: linear-gradient(180deg, #1c1c1c, #2c1f4c, #3b1f6b, #4b1f8c, #5c1fae, #6f1fd1);
     min-height: 100vh;
-    /* to allow scrolling */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,11 +34,8 @@ body {
     font-family: 'BarbieMedium', cursive;
     font-size: 6.85rem;
     left: 65px;
-    /* larger text */
     color: #ff007f;
-    /* neon pink */
     -webkit-text-stroke: 2.3px #ffffff;
-    /* thick white border for readability */
     text-shadow:
         0 0 5px #ff007f,
         0 0 10px #ff007f,
@@ -50,30 +46,19 @@ body {
         0 0 100px #ff66b3;
     position: relative;
     margin: 0 auto 50px auto;
-    /* centered with bottom margin */
     text-align: center;
-    animation: flicker 3s infinite;
+    animation: flicker 3s step-end infinite;
+    will-change: opacity;
+    transform: translateZ(0);
     letter-spacing: -1px;
-    /* reduces space between all letters */
     word-spacing: -19px;
-    /* reduces extra gap between words */
 }
 
 @keyframes flicker {
-
-    0%,
-    18%,
-    22%,
-    25%,
-    53%,
-    57%,
-    100% {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
         opacity: 1;
     }
-
-    20%,
-    24%,
-    55% {
+    20%, 24%, 55% {
         opacity: 0.3;
     }
 }
@@ -91,7 +76,8 @@ body {
 .logo-barbie::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0; left: 0; 
+    width: 100%; height: 100%; /* Explicit sizing */
     border-radius: 50%;
     box-shadow:
         0 0 10px rgba(255, 182, 193, 0.8),
@@ -99,7 +85,9 @@ body {
         0 0 30px rgba(255, 20, 147, 0.4),
         0 0 40px rgba(255, 182, 193, 0.3),
         0 4px 15px rgba(0, 0, 0, 0.3);
-    animation: gpuGlowFlicker 3s infinite;
+    animation: gpuGlowFlicker 3s step-end infinite;
+    will-change: opacity;
+    transform: translateZ(0);
     z-index: -1;
     transition: transform 0.3s, box-shadow 0.3s;
 }
